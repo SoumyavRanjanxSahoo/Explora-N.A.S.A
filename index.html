@@ -4,22 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>main page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>EXPLORA - Main Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #fecc99;
-            font-family: 'Arial', sans-serif;
-        }
-        .navbar-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            margin-left: 16px;
-            object-fit: cover;
-        }
+        body { background-color: #fecc99; font-family: 'Arial', sans-serif; }
+        .navbar-avatar { width: 40px; height: 40px; border-radius: 50%; cursor: pointer; margin-left: 16px; object-fit: cover; }
     </style>
 </head>
 
@@ -30,35 +19,35 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="https://www.magicbricks.com">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://www.booking.com">Hotels</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Country
-                        </a>
+                            data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">India</a></li>
+                            <li><a class="dropdown-item" href="index2.html">Go to Profile Page</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()">Log out</a></li>
                         </ul>
                     </li>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Ask Query" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">
-                        ASK
-                    </button>
+                    <button class="btn btn-outline-success" type="submit">ASK</button>
                 </form>
-                <!-- Profile Avatar -->
                 <img id="profile-avatar" class="navbar-avatar" src="https://i.pravatar.cc/40"
                     data-bs-toggle="modal" data-bs-target="#profileModal" alt="Profile Avatar" />
             </div>
         </div>
     </nav>
 
-    <!-- Your page's main content here -->
+    <!-- Page content here -->
+    <div class="container mt-5">
+        <h1>Welcome to EXPLORA</h1>
+        <p>This is the main landing page. Use the navigation bar to access your profile or other features.</p>
+    </div>
 
     <!-- Profile Modal -->
     <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
@@ -99,12 +88,16 @@
       </div>
     </div>
 
-    <!-- Profile/Authentication JS -->
     <script>
     const API_URL = "http://localhost:5000/api";
     function saveToken(token) { localStorage.setItem('token', token); }
     function getToken() { return localStorage.getItem('token'); }
     function removeToken() { localStorage.removeItem('token'); }
+
+    function logout() {
+        removeToken();
+        window.location.href = 'index.html';
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
         loadProfile();
