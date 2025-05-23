@@ -10,17 +10,19 @@
     html {
       scroll-behavior: smooth;
     }
-
+    
     body {
       background-color: #fecc99;
       font-family: 'Arial', sans-serif;
     }
-
+    
+    /* Navigation Bar */
     .navbar-brand {
       font-weight: bold;
       letter-spacing: 2px;
     }
-
+    
+    /* Tile Styles */
     .state-tile {
       border-radius: 20px;
       overflow: hidden;
@@ -29,12 +31,12 @@
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
       background-color: #fff;
     }
-
+    
     .state-tile:hover {
       transform: scale(1.05);
       box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     }
-
+    
     .state-img {
       width: 100%;
       height: 180px;
@@ -42,22 +44,23 @@
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
     }
-
+    
     .state-caption {
       padding: 15px;
       text-align: center;
       font-weight: bold;
       color: #333;
     }
-
+    
+    /* Detailed Page Styles */
     .page-section {
       display: none;
     }
-
+    
     .page-section.active {
       display: block;
     }
-
+    
     .description-img {
       width: 100%;
       height: 400px;
@@ -65,14 +68,14 @@
       border-radius: 10px;
       margin-bottom: 20px;
     }
-
+    
     .description-content {
       background-color: #fff;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
-
+    
     .btn-back,
     .btn-up {
       background-color: #ff9800;
@@ -85,7 +88,7 @@
       font-weight: bold;
       cursor: pointer;
     }
-
+    
     .btn-back:hover,
     .btn-up:hover {
       background-color: #e68a00;
@@ -94,29 +97,54 @@
 </head>
 
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(246, 201, 146);">
+  <!-- Navigation Bar (Provided) -->
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(246, 201, 146);" id="10">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Explore India</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand">EXPLORA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#tiles-view">Home</a>
+            <a class="nav-link active" aria-current="page" href="https://www.magicbricks.com">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#states-section">States</a>
+            <a class="nav-link" href="https://www.booking.com">Hotels</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#union-section">Union Territories</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              more
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/index.html">Log out</a></li>
+              <li><a class="dropdown-item" href="/nextpage.html">Refresh</a></li>
+            </ul>
           </li>
         </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">
+            <a id="ask" href="https://google.com" style="text-decoration: none; color:inherit;">search</a>
+          </button>
+        </form>
       </div>
     </div>
   </nav>
+
+  <!-- Additional Search Bar at the Top -->
+  <div class="container my-3">
+    <div class="row">
+      <div class="col">
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search for a state or UT..." aria-label="Search">
+          <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
   <!-- Tiles View -->
   <div id="tiles-view" class="container mt-5">
@@ -126,7 +154,7 @@
       <h4 class="text-center mb-3">States</h4>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <script>
-          // Array of state & UT objects with name, working image URL, and description
+          // Array of State & UT objects with name, working image URL, and description
           const statesUTs = [
             {
               name: "Andhra Pradesh",
@@ -256,7 +284,7 @@
             {
               name: "Uttar Pradesh",
               img: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Taj_Mahal_in_Agra.jpg",
-              desc: "Uttar Pradesh is steeped in history and spirituality, home to iconic landmarks like the Taj Mahal and a mosaic of vibrant cultural traditions."
+              desc: "Uttar Pradesh is steeped in history and spirituality, home to iconic landmarks like the Taj Mahal and a vibrant cultural mosaic."
             },
             {
               name: "Uttarakhand",
@@ -270,7 +298,7 @@
             }
           ];
 
-          // Define union territories (UT) names
+          // Predefined list of Union Territories
           const unionTerritories = [
             "Andaman and Nicobar Islands",
             "Chandigarh",
@@ -282,7 +310,7 @@
             "Puducherry"
           ];
 
-          // Generate tile HTML for the "States" section (all entries not in unionTerritories)
+          // Generate tile HTML for States and UT separately.
           let statesHTML = "";
           let utHTML = "";
           statesUTs.forEach(state => {
@@ -301,20 +329,20 @@
             }
           });
 
-          document.write(`
-            ${statesHTML}
-          `);
+          // Write out the States section
+          document.write(statesHTML);
         </script>
       </div>
+    </div>
 
-      <!-- Union Territories Section -->
-      <div id="union-section" class="mt-5">
-        <h4 class="text-center mb-3">Union Territories</h4>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <script>
-            document.write(utHTML);
-          </script>
-        </div>
+    <!-- Union Territories Section -->
+    <div id="union-section" class="mt-5">
+      <h4 class="text-center mb-3">Union Territories</h4>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <script>
+          // Output the pre-generated UT HTML.
+          document.write(utHTML);
+        </script>
       </div>
     </div>
   </div>
@@ -342,14 +370,14 @@
 
   <!-- JavaScript Functions -->
   <script>
-    // Open a new tab with the same page URL + hash to show the detailed page.
+    // Open a new tab with the same URL plus a hash indicating the detailed page.
     function openStateTab(sectionId) {
       const baseUrl = window.location.origin + window.location.pathname;
       const newUrl = baseUrl + '#' + sectionId;
       window.open(newUrl, '_blank');
     }
 
-    // Hide the main tile view, show the detailed page corresponding to the hash, and scroll to the top.
+    // Show the detailed page corresponding to the hash and hide the main tiles view.
     function showPage(sectionId) {
       const tilesView = document.getElementById("tiles-view");
       if (tilesView) {
@@ -365,7 +393,7 @@
       window.scrollTo(0, 0);
     }
 
-    // The "Back" button resets the view to the main tiles and cleans the URL hash.
+    // The "Back" button returns to the main tiles view and resets the URL hash.
     function goBack() {
       document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
@@ -377,7 +405,7 @@
       history.pushState("", document.title, window.location.pathname + window.location.search);
     }
 
-    // The "Go Up" button scrolls smoothly to the top of the page.
+    // The "Go Up" button scrolls gently to the top.
     function goUp() {
       window.scrollTo({
         top: 0,
@@ -385,7 +413,7 @@
       });
     }
 
-    // On page load, if a URL hash exists then show the detailed page.
+    // On page load, if a hash exists in the URL, show the detailed page.
     document.addEventListener("DOMContentLoaded", function () {
       if (window.location.hash) {
         const sectionId = window.location.hash.substring(1);
