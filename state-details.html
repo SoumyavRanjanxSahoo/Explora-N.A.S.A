@@ -9,9 +9,9 @@
   <style>
     body { background-color: #faeee7; font-family: 'Arial', sans-serif; padding-bottom: 60px; }
     .details-card { background: #fff; border-radius: 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.11); padding: 30px; margin-bottom: 30px; }
-    .details-title { font-size: 2.2rem; font-weight: bold; color: #4a3f35; margin-bottom: .5rem; }
+    .details-title { font-size: 2.2rem; font-weight: bold; color: #4a3f35; margin-bottom: 0.5rem; }
     .details-tagline { font-size: 1.1rem; color: #888; margin-bottom: 1.2rem; }
-    .details-section-title { font-size: 1.25rem; font-weight: 600; color: #3a3a3a; margin-top: 1.8rem; margin-bottom: .5rem; }
+    .details-section-title { font-size: 1.25rem; font-weight: 600; color: #3a3a3a; margin-top: 1.8rem; margin-bottom: 0.5rem; }
     .details-img { max-width: 100%; border-radius: 10px; margin-bottom: 18px; object-fit: cover; }
     .details-gallery img { max-width: 150px; max-height: 100px; margin: 5px 10px 10px 0; border-radius: 8px; object-fit: cover; border: 2px solid #eee; }
     .video-embed { width: 100%; max-width: 480px; height: 260px; border-radius: 7px; margin-bottom: 16px; border: none; }
@@ -26,11 +26,11 @@
   </style>
 </head>
 <body>
-<div class="container mt-5 mb-5">
-  <div id="main-details"></div>
-  <button class="back-btn" onclick="history.back()">Back</button>
-</div>
-   
+  <div class="container mt-5 mb-5">
+   <div id="main-details"></div>
+    <button class="back-btn" onclick="history.back()">Back</button>
+  </div>
+
 <script>
 const stateData = {
 // ANDHRA PRADESH
@@ -2090,8 +2090,11 @@ previews: {
   const url = new URL(window.location.href);
   return url.searchParams.get('state');
 }
-function renderDetails(slug) {
-  const data = stateData[slug];
+  
+function renderDetails(slug) { 
+  console.log('Retrieved slug:', slug);
+      const data = stateData[slug];
+      console.log('Retrieved data:', data);
   if (!data) {
     document.getElementById('main-details').innerHTML = `<div class="alert alert-danger">State/UT not found or data not available.</div>`;
     return;
