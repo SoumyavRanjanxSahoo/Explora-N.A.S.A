@@ -83,7 +83,7 @@
   </style>
 </head>
 <body>
-  <!-- Navigation Bar (as provided) -->
+  <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(246, 201, 146);" id="10">
     <div class="container-fluid">
       <a class="navbar-brand">EXPLORA</a>
@@ -126,7 +126,6 @@
   </div>
 
   <!-- Main Tiles View -->
-   
   <div id="tiles-view" class="container mt-5">
     <h3 class="mb-5 text-center">Explore All 36 States & Union Territories of India</h3>
 
@@ -307,93 +306,93 @@
         key: "west-bengal"
     }
           ]; // End of States
-          
-          function openStateDetails(stateKey) {
+            function openStateDetails(stateKey) {
             window.location.href = `state-details.html?state=${stateKey}`;
           }
-
+    
           // Dynamically generate tiles for states
           statesUTs.forEach(function(state) {
-            document.write(`
-              <div class="col">
-                <div class="state-tile" onclick="openStateDetails('${state.key}')">
-                  <img src="${state.img}" alt="${state.name}" class="state-img">
-                  <div class="state-caption">${state.name}</div>
+            // Only include items that don't have the 'isUnionTerritory' flag (i.e., States)
+            if (!state.isUnionTerritory) {
+              document.write(`
+                <div class="col">
+                  <div class="state-tile" onclick="openStateDetails('${state.key}')">
+                    <img src="${state.img}" alt="${state.name}" class="state-img">
+                    <div class="state-caption">${state.name}</div>
+                  </div>
                 </div>
-              </div>
-            `);
+              `);
+            }
           });
         </script>
       </div>
     </div>
-<!-- Union Territories Section -->
+  <!-- Union Territories Section -->
     <div id="union-section" class="mt-5">
       <h4 class="text-center mb-3">Union Territories</h4>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <script>
-          // Append Union Territories to the same global array
+          // Append Union Territories to the same global array with the proper flag
           statesUTs.push(
             {
-        name: "Andaman and Nicobar Islands",
-        img: "https://www.gokitetours.com/wp-content/uploads/2025/01/10-Best-Places-to-Visit-in-Andaman-and-Nicobar-in-2025.webp",
-        desc: "The Andaman and Nicobar Islands are a tropical haven featuring pristine beaches, crystal-clear waters, and vibrant marine biodiversity.",
-        key: "andaman-nicobar-islands"
-    },
-    {
-        name: "Chandigarh",
-        img: "https://assets-news.housing.com/news/wp-content/uploads/2024/04/24030025/Places-to-visit-near-Chandigarh.jpg",
-        desc: "Chandigarh showcases modern architecture, landscaped gardens, and a clean, organized city layout, making it unique in India.",
-        key: "chandigarh"
-    },
-    {
-        name: "Dadra and Nagar Haveli and Daman and Diu",
-        img: "https://www.asparkholidays.com/uploads/60322_Panikota-Fort_Daman-Tourist-Places.jpg",
-        desc: "This union territory offers picturesque coastal views, historical forts, and a blend of cultural influences.",
-        key: "dadra-nagar-haveli-daman-diu"
-    },
-    {
-        name: "Delhi",
-        img: "https://www.eurokidsindia.com/blog/wp-content/uploads/2023/04/delhi.jpg",
-        desc: "Delhi, the capital city, is a bustling urban center steeped in history, featuring iconic landmarks and diverse cultural influences.",
-        key: "delhi"
-    },
-    {
-        name: "Jammu and Kashmir",
-        img: "https://assets-news.housing.com/news/wp-content/uploads/2022/08/21104741/Tourist-Places-in-Kashmir-feature-compressed.jpg",
-        desc: "Jammu and Kashmir boast breathtaking landscapes, serene lakes, and a rich heritage of art and culture.",
-        key: "jammu-kashmir"
-    },
-    {
-        name: "Ladakh",
-        img: "https://www.holidify.com/images/cmsuploads/compressed/2999_20190305160539.jpg",
-        desc: "Ladakh offers rugged mountain beauty, ancient monasteries, and an adventurous spirit in the high Himalayas.",
-        key: "ladakh"
-    },
-    {
-        name: "Lakshadweep",
-        img: "https://miro.medium.com/v2/resize:fit:1200/0*wWfIKxAcCGjtKCgE.jpg",
-        desc: "Lakshadweep is a group of islands known for its vibrant coral reefs, turquoise lagoons, and scenic beauty.",
-        key: "lakshadweep"
-    },
-    {
-        name: "Puducherry",
-        img: "https://tripindia.co.in/uploads/Explore-Mountain-with-Coastal-Tour1.jpg",
-        desc: "Puducherry charms with its French colonial legacy, serene beaches, and a cosmopolitan ambiance.",
-        key: "puducherry"
-    }
+              name: "Andaman and Nicobar Islands",
+              img: "https://www.gokitetours.com/wp-content/uploads/2025/01/10-Best-Places-to-Visit-in-Andaman-and-Nicobar-in-2025.webp",
+              desc: "The Andaman and Nicobar Islands are a tropical haven featuring pristine beaches, crystal-clear waters, and vibrant marine biodiversity.",
+              key: "andaman-nicobar-islands",
+              isUnionTerritory: true
+            },
+            {
+              name: "Chandigarh",
+              img: "https://assets-news.housing.com/news/wp-content/uploads/2024/04/24030025/Places-to-visit-near-Chandigarh.jpg",
+              desc: "Chandigarh showcases modern architecture, landscaped gardens, and a clean, organized city layout, making it unique in India.",
+              key: "chandigarh",
+              isUnionTerritory: true
+            },
+            {
+              name: "Dadra and Nagar Haveli and Daman and Diu",
+              img: "https://www.asparkholidays.com/uploads/60322_Panikota-Fort_Daman-Tourist-Places.jpg",
+              desc: "This union territory offers picturesque coastal views, historical forts, and a blend of cultural influences.",
+              key: "dadra-nagar-haveli-daman-diu",
+              isUnionTerritory: true
+            },
+            {
+              name: "Delhi",
+              img: "https://www.eurokidsindia.com/blog/wp-content/uploads/2023/04/delhi.jpg",
+              desc: "Delhi, the capital city, is a bustling urban center steeped in history, featuring iconic landmarks and diverse cultural influences.",
+              key: "delhi",
+              isUnionTerritory: true
+            },
+            {
+              name: "Jammu and Kashmir",
+              img: "https://assets-news.housing.com/news/wp-content/uploads/2022/08/21104741/Tourist-Places-in-Kashmir-feature-compressed.jpg",
+              desc: "Jammu and Kashmir boast breathtaking landscapes, serene lakes, and a rich heritage of art and culture.",
+              key: "jammu-kashmir",
+              isUnionTerritory: true
+            },
+            {
+              name: "Ladakh",
+              img: "https://www.holidify.com/images/cmsuploads/compressed/2999_20190305160539.jpg",
+              desc: "Ladakh offers rugged mountain beauty, ancient monasteries, and an adventurous spirit in the high Himalayas.",
+              key: "ladakh",
+              isUnionTerritory: true
+            },
+            {
+              name: "Lakshadweep",
+              img: "https://miro.medium.com/v2/resize:fit:1200/0*wWfIKxAcCGjtKCgE.jpg",
+              desc: "Lakshadweep is a group of islands known for its vibrant coral reefs, turquoise lagoons, and scenic beauty.",
+              key: "lakshadweep",
+              isUnionTerritory: true
+            },
+            {
+              name: "Puducherry",
+              img: "https://tripindia.co.in/uploads/Explore-Mountain-with-Coastal-Tour1.jpg",
+              desc: "Puducherry charms with its French colonial legacy, serene beaches, and a cosmopolitan ambiance.",
+              key: "puducherry",
+              isUnionTerritory: true
+            }
           );
-          // Predefined list of Union Territories for separation
-          var unionTerritories = [
-            "Andaman and Nicobar Islands",
-            "Chandigarh",
-            "Dadra and Nagar Haveli and Daman and Diu",
-            "Delhi",
-            "Jammu and Kashmir",
-            "Ladakh",
-            "Lakshadweep",
-            "Puducherry"
-          ];
-     
+
+          // Loop through the combined array and render only Union Territories
           statesUTs.forEach(function(state) {
             if (state.isUnionTerritory) {
               document.write(`
@@ -411,7 +410,6 @@
     </div>
   </div>
   
-  <!-- JavaScript Functions -->
   <!-- JavaScript Functions -->
   <script>
     // Function to redirect to state-details.html with the selected state's key
