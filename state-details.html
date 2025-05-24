@@ -2167,5 +2167,71 @@ previews: {
     <p class="float-end"><a href="#top">Back to top</a></p>
     <p>©Team Agniv(Nikita.Abhilipsa.Soumya.Amlan)</p>
   </footer>
+  
+  <script>
+  // Get query parameter from URL
+  function getStateFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("state");
+  }
+
+  // Render the state details based on the selected state key
+  function renderStateDetails(stateKey) {
+    const data = stateData[stateKey];
+
+    if (!data) {
+      document.getElementById("main-details").innerHTML = "<h3 class='text-center text-danger'>State data not found.</h3>";
+      return;
+    }
+
+    const mainDetails = document.getElementById("main-details");
+    mainDetails.innerHTML = `
+      <div class="details-card">
+        <h2 class="details-title">${data.name}</h2>
+        <div class="details-tagline">${data.tagline}</div>
+        <img class="details-img" src="${data.img}" alt="${data.name}">
+        
+        <h4 class="details-section-title">Capital</h4>
+        <p>${data.capital}</p>
+
+        <h4 class="details-section-title">Major Cities</h4>
+        <p>${data.majorCities.join(', ')}</p>
+
+        <h4 class="details-section-title">Tourist Attractions</h4>
+        <ul>
+          ${data.tourism.attractions.map(attraction => `<li>${attraction}</li>`).join('')}
+        </ul>
+
+        <h4 class="details-section-title">Cuisine</h4>
+        <p><strong>Signature:</strong> ${data.food.signature}</p>
+        <p><strong>Street Food:</strong> ${data.food.street}</p>
+        <p><strong>Sweets:</strong> ${data.food.sweets}</p>
+
+        <h4 class="details-section-title">Gallery</h4>
+        <div class="details-gallery">
+          ${data.previews.images.map(img => `<img src="${img}" alt="Gallery">`).join('')}
+        </div>
+
+        <h4 class="details-section-title">Videos</h4>
+        ${data.previews.videos.map(video => `
+          <div>
+            <p><strong>${video.title}</strong></p>
+            <iframe class="video-embed" src="${video.src}" allowfullscreen></iframe>
+          </div>
+        `).join('')}
+        
+        <h4 class="details-section-title">Conclusion</h4>
+        <p>${data.conclusion}</p>
+      </div>
+    `;
+  }
+
+  // Initialize on page load
+  document.addEventListener("DOMContentLoaded", function () {
+    const stateKey = getStateFromURL();
+    renderStateDetails(stateKey);
+  });
+</script>
+
 </body>
 </html>
