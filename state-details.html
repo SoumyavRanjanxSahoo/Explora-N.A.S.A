@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>State & UT Explorer - Details</title>
+  <meta charset="utf-8">
+  <title>State Details - Explora India</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap 5 -->
+  <!-- Bootstrap CSS & FontAwesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome (optional for icons) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -14,46 +13,180 @@
     referrerpolicy="no-referrer"
   />
   <style>
-    body { background-color: #faeee7; font-family: 'Arial', sans-serif; padding-bottom: 100px; }
-    .details-card { background: #fff; border-radius: 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.11); padding: 30px; margin-bottom: 30px; }
-    .details-title { font-size: 2.2rem; font-weight: bold; color: #4a3f35; margin-bottom: 0.5rem; }
-    .details-tagline { font-size: 1.1rem; color: #888; margin-bottom: 1.2rem; }
-    .details-section-title { font-size: 1.25rem; font-weight: 600; color: #3a3a3a; margin-top: 1.8rem; margin-bottom: 0.5rem; }
-    .details-img { max-width: 100%; border-radius: 10px; margin-bottom: 18px; object-fit: cover; }
-    .details-gallery img { max-width: 150px; max-height: 100px; margin: 5px 10px 10px 0; border-radius: 8px; object-fit: cover; border: 2px solid #eee; }
-    .video-embed { width: 100%; max-width: 480px; height: 260px; border-radius: 7px; margin-bottom: 16px; border: none; }
-    .badge { background: #eabf00; color: #fff; font-size: 1em; margin-right: 9px; margin-bottom: 5px; }
-    .back-btn { background: #ff9800; color: #fff; border: none; padding: 10px 25px; border-radius: 6px; font-weight: bold; margin-top: 15px; }
-    .back-btn:hover { background: #e68a00; }
-
-    @media (max-width: 767px) {
-      .details-card { padding: 12px; }
-      .video-embed { max-width: 100%; height: 180px; }
-      .details-gallery img { max-width: 44vw; max-height: 65px; }
+    html {
+      scroll-behavior: smooth;
     }
-
-    /* Footer styles */
-    .footer a {
-      transition: color 0.3s ease;
-      text-decoration: none;
+    body {
+      background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
-    .footer a:hover {
-      color: #ffc107;
+    .curvy-card {
+      background: #fff;
+      border-radius: 2rem 2rem 1rem 1rem / 2.5rem 2.5rem 1rem 1rem;
+      box-shadow: 0 8px 24px 0 rgba(0,0,0,0.11);
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      position: relative;
+      animation: fadeInUp 1s cubic-bezier(.49,1.74,.38,.84);
+      transition: box-shadow .3s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .curvy-card:hover {
+      box-shadow: 0 12px 32px 0 rgba(0,0,0,0.17);
+    }
+    .state-img-main {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 2rem 2rem 0 0 / 2.5rem 2.5rem 0 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+      margin-bottom: 1.5rem;
+    }
+    .tagline {
+      color: #e99400;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: .2rem;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: #2d1a00;
+      margin-bottom: .5rem;
+    }
+    .info-list, .city-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: .7rem;
+      font-size: 1.1rem;
+    }
+    .info-item {
+      background: #fff6e0;
+      border-radius: 2rem;
+      padding: .5rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(249, 190, 45, 0.13);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .section-title {
+      color: #c2871a;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+      text-shadow: 0 2px 12px #f8b50033;
+      border-left: 4px solid #f8b500;
+      padding-left: .7rem;
+    }
+    .desc-section {
+      margin-bottom: 1.2rem;
+      color: #4b2b00;
+    }
+    .icon-circle {
+      background: #ffe4b7;
+      border-radius: 50%;
+      padding: .45rem .7rem;
+      color: #d18700;
+      margin-right: .6rem;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 6px #f8b50022;
+    }
+    .gallery-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+    .gallery-img {
+      border-radius: 1.2rem;
+      width: 180px;
+      height: 120px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px #f8b50022;
+      margin-bottom: 8px;
+      transition: transform .2s;
+    }
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+    .video-embed {
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px #f8b50022;
+      width: 100%;
+      height: 240px;
+    }
+    .food-list, .festival-list {
+      padding-left: 1rem;
+      list-style: none;
+      margin-bottom: 0.8rem;
+    }
+    .food-list li, .festival-list li {
+      margin-bottom: 0.4rem;
+      padding-left: 0.5rem;
+      position: relative;
+    }
+    .food-list li:before, .festival-list li:before {
+      content: "🍴";
+      margin-right: 0.6rem;
+      color: #ffb74d;
+      font-size: 1.1rem;
+    }
+    .festival-list li:before {
+      content: "🎉";
+      color: #f57c00;
+    }
+    .back-btn {
+      background: linear-gradient(90deg, #ffd97c, #ffb74d 70%);
+      color: #7a4a00;
+      border: none;
+      font-weight: 600;
+      border-radius: 2rem;
+      padding: 0.6rem 2.2rem;
+      margin: 2rem 0 0 0;
+      box-shadow: 0 2px 6px #f8b50022;
+      transition: background .2s, color .2s;
+      font-size: 1.12rem;
+    }
+    .back-btn:hover {
+      background: linear-gradient(90deg, #fecf4d, #f8b500 90%);
+      color: #e99400;
+    }
+    @media (max-width: 900px) {
+      .curvy-card { padding: 1.1rem; }
+      .state-img-main { height: 200px; }
+      .gallery-img { width: 120px; height: 80px; }
     }
   </style>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(246, 201, 146);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="nextpage.html"><i class="fas fa-chevron-left"></i> EXPLORA</a>
+    </div>
+  </nav>
 
-  <div class="container mt-5 mb-5">
-    <div id="main-details"></div>
-    <button class="back-btn" onclick="history.back()">Back</button>
+  <div id="state-details-container"></div>
+
+  <div class="container text-center">
+    <button class="back-btn" onclick="window.history.back()">
+      <i class="fas fa-arrow-left"></i> Back to States
+    </button>
   </div>
 
-  <!-- Enhanced Footer -->
   <footer class="footer bg-dark text-white py-4 mt-5">
     <div class="container">
       <div class="d-flex flex-column align-items-center">
-        <a href="#top" class="btn btn-warning btn-lg rounded-pill shadow-sm mb-3">
+        <a href="#" class="btn btn-warning btn-lg rounded-pill shadow-sm mb-3">
           Back to top
         </a>
         <p class="mb-2">&copy; Team Agniv (Nikita, Abhilipsa, Soumya, Amlan)</p>
@@ -67,59 +200,117 @@
     </div>
   </footer>
 
-  <!-- DO NOT use defer -->
   <script src="state-data.js"></script>
   <script>
-    function getStateKey() {
+    // Helper: Parse state key from URL
+    function getStateKeyFromURL() {
       const params = new URLSearchParams(window.location.search);
-      return params.get("state");
+      return params.get('state');
     }
 
-    function renderDetails() {
-      const key = getStateKey();
-      const main = document.getElementById('main-details');
-      // DEBUG LOGS
-      console.log("Loaded stateData:", typeof stateData, stateData);
-      console.log("Available keys:", stateData ? Object.keys(stateData) : []);
-      console.log("URL key:", key);
+    // Helper: Curvy info icon
+    function iconHtml(icon, title='') {
+      return `<span class="icon-circle" title="${title}"><i class="${icon}"></i></span>`;
+    }
 
-      if (!window.stateData) {
-        main.innerHTML = '<div class="alert alert-danger">Failed to load state-data.js!</div>';
+    // Render State Details
+    function renderStateDetails(state) {
+      if (!state) {
+        document.getElementById('state-details-container').innerHTML = `
+          <div class="curvy-card text-center">
+            <h2>State not found</h2>
+            <p>Please go back and select a valid state.</p>
+          </div>`;
         return;
       }
-      if (!key || !stateData[key]) {
-        main.innerHTML = `<div class="alert alert-danger">State/UT not found: <b>${key}</b></div>`;
-        return;
-      }
-      const data = stateData[key];
-      main.innerHTML = `
-        <div class="details-card">
-          <div class="details-title">${data.name || ""}</div>
-          <div class="details-tagline">${data.tagline || ""}</div>
-          <img src="${data.img || ""}" alt="${data.name || ""}" class="details-img mb-3">
-          <div><span class="badge">Capital</span> ${data.capital || ""}</div>
-          <div class="mt-2"><span class="badge">Major Cities</span> ${(data.majorCities || []).join(', ')}</div>
-          <div class="details-section-title">Tourist Attractions</div>
-          <ul>${(data.tourism && data.tourism.attractions ? data.tourism.attractions.map(a => `<li>${a}</li>`).join('') : '')}</ul>
-          <div class="details-section-title">Videos</div>
-          ${(data.previews && data.previews.videos ? data.previews.videos.map(v => `
-            <div>
-              <iframe class="video-embed" src="${v.src}" title="${v.title}" allowfullscreen></iframe>
-              <small>${v.title}</small>
-            </div>
-          `).join('') : '')}
-          <div class="details-section-title">Gallery</div>
-          <div class="details-gallery">
-            ${(data.previews && data.previews.images ? data.previews.images.map(img => `<img src="${img}" alt="Gallery">`).join('') : '')}
+
+      // Main image and heading
+      let html = `
+        <div class="curvy-card shadow-lg">
+          <img src="${state.img}" alt="${state.name}" class="state-img-main">
+          <div class="tagline">${state.tagline || ''}</div>
+          <h1>${state.name}</h1>
+          <div class="info-list mb-3">
+            ${state.capital ? `<span class="info-item">${iconHtml('fas fa-landmark', 'Capital City')}<b>Capital:</b> ${state.capital}</span>` : ''}
+            ${state.location ? `<span class="info-item">${iconHtml('fas fa-map-marker-alt', 'Location')}<b>Location:</b> ${state.location}</span>` : ''}
           </div>
-          <div class="details-section-title">Conclusion</div>
-          <p>${data.conclusion || ""}</p>
+          <div class="info-list mb-3">
+            ${state.majorCities ? `<span class="info-item">${iconHtml('fas fa-city', 'Major Cities')}<b>Major Cities:</b> ${state.majorCities.join(", ")}</span>` : ''}
+            ${state.borders ? `<span class="info-item">${iconHtml('fas fa-route', 'Borders')}<b>Borders:</b> ${state.borders}</span>` : ''}
+          </div>
+          ${state.terrain ? `<div class="info-item">${iconHtml('fas fa-mountain', 'Terrain')}<b>Terrain:</b> ${state.terrain}</div>` : ''}
+          
+          <div class="section-title mt-4">${iconHtml('fas fa-info-circle')}Overview</div>
+          <div class="desc-section">${state.conclusion || ''}</div>
+
+          <div class="section-title">${iconHtml('fas fa-palette')}Culture & Arts</div>
+          <div class="desc-section">
+            <b>Arts:</b> ${state.culture?.arts || 'N/A'}<br>
+            <b>Artisans:</b> ${state.culture?.artisans || 'N/A'}<br>
+            <b>GI Tags:</b> ${state.culture?.giTag || 'N/A'}<br>
+            <b>Symbols:</b> ${state.culture?.symbols || 'N/A'}<br>
+            <b>Preservation:</b> ${state.culture?.preservation || 'N/A'}
+          </div>
+
+          <div class="section-title">${iconHtml('fas fa-umbrella-beach')}Tourism Highlights</div>
+          <div class="desc-section">
+            <b>Attractions:</b>
+            <ul class="festival-list">
+              ${(state.tourism?.attractions || []).map(a => `<li>${a}</li>`).join('')}
+            </ul>
+            <b>Religious Sites:</b> ${state.tourism?.religious || 'N/A'}<br>
+            <b>Special Experiences:</b> ${state.tourism?.experiences || 'N/A'}<br>
+            <b>Statistics:</b> ${state.tourism?.stats || 'N/A'}<br>
+            <b>Best Time to Visit:</b> ${state.tourism?.bestTime || 'N/A'}
+          </div>
+
+          <div class="section-title">${iconHtml('fas fa-utensils')}Cuisine</div>
+          <div class="desc-section">
+            <b>Signature Dishes:</b>
+            <ul class="food-list">${(state.food?.signature || '').split(',').map(f => `<li>${f.trim()}</li>`).join('')}</ul>
+            <b>Street Food:</b> ${(state.food?.street || '')}<br>
+            <b>Sweets:</b> ${(state.food?.sweets || '')}<br>
+            <b>Connection to Traditions:</b> ${(state.food?.connection || '')}<br>
+            <b>Tourism & Food:</b> ${(state.food?.tourism || '')}
+          </div>
+
+          <div class="section-title">${iconHtml('fas fa-theater-masks')}Performing Arts</div>
+          <div class="desc-section">
+            <b>Dance:</b> ${state.dance?.forms || ''}<br>
+            <b>Music:</b> ${state.dance?.music || ''}<br>
+            <b>Languages:</b> ${state.dance?.languages || ''}
+          </div>
+
+          <div class="section-title">${iconHtml('fas fa-images')}Gallery</div>
+          <div class="gallery-row">
+            ${(state.previews?.images || []).map(img => `<img src="${img}" class="gallery-img" alt="Gallery">`).join('')}
+          </div>
+
+          <div class="section-title">${iconHtml('fas fa-video')}Featured Videos</div>
+          <div class="row">
+            ${(state.previews?.videos || []).map(v =>
+              `<div class="col-md-4 mb-3">
+                <div class="ratio ratio-16x9">
+                  <iframe class="video-embed" src="${v.src}" frameborder="0" allowfullscreen title="${v.title}"></iframe>
+                </div>
+                <div class="text-center small mt-1">${v.title}</div>
+              </div>`).join('')}
+          </div>
         </div>
       `;
+
+      document.getElementById('state-details-container').innerHTML = html;
     }
 
-    // Call the function after all scripts loaded
-    renderDetails();
+    // Main: Load state based on URL param
+    document.addEventListener('DOMContentLoaded', function() {
+      const stateKey = getStateKeyFromURL();
+      if (window.stateData && stateKey && stateData[stateKey]) {
+        renderStateDetails(stateData[stateKey]);
+      } else {
+        renderStateDetails(null);
+      }
+    });
   </script>
 </body>
 </html>
