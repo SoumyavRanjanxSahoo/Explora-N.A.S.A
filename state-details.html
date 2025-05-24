@@ -9,9 +9,9 @@
   <style>
     body { background-color: #faeee7; font-family: 'Arial', sans-serif; padding-bottom: 60px; }
     .details-card { background: #fff; border-radius: 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.11); padding: 30px; margin-bottom: 30px; }
-    .details-title { font-size: 2.2rem; font-weight: bold; color: #4a3f35; margin-bottom: .5rem; }
+    .details-title { font-size: 2.2rem; font-weight: bold; color: #4a3f35; margin-bottom: 0.5rem; }
     .details-tagline { font-size: 1.1rem; color: #888; margin-bottom: 1.2rem; }
-    .details-section-title { font-size: 1.25rem; font-weight: 600; color: #3a3a3a; margin-top: 1.8rem; margin-bottom: .5rem; }
+    .details-section-title { font-size: 1.25rem; font-weight: 600; color: #3a3a3a; margin-top: 1.8rem; margin-bottom: 0.5rem; }
     .details-img { max-width: 100%; border-radius: 10px; margin-bottom: 18px; object-fit: cover; }
     .details-gallery img { max-width: 150px; max-height: 100px; margin: 5px 10px 10px 0; border-radius: 8px; object-fit: cover; border: 2px solid #eee; }
     .video-embed { width: 100%; max-width: 480px; height: 260px; border-radius: 7px; margin-bottom: 16px; border: none; }
@@ -26,11 +26,12 @@
   </style>
 </head>
 <body>
-<div class="container mt-5 mb-5">
-  <div id="main-details"></div>
-  <button class="back-btn" onclick="history.back()">Back</button>
-</div>
-<script>
+  <div class="container mt-5 mb-5">
+    <div id="main-details" class="details-card"></div>
+    <button class="back-btn" onclick="history.back()">Back</button>
+  </div>
+  
+  <script>
 // 36 STATES AND UTS in the order of nextpage.html (alphabetical by state, then UTs at the end)
 const stateData = {
 // ANDHRA PRADESH
@@ -373,7 +374,7 @@ const stateData = {
 // ... UNION TERRITORIES: ANDAMAN AND NICOBAR ISLANDS, CHANDIGARH, DADRA AND NAGAR HAVELI AND DAMAN AND DIU, DELHI, JAMMU AND KASHMIR, LADAKH, LAKSHADWEEP, PUDUCHERRY
 // For brevity, only the first set is shown here. Continue the list in the exact same structure for all others.
   // GUJARAT
-stateData["gujarat"] = {
+"gujarat": {
   name: "Gujarat",
   tagline: "Jewel of Western India",
   capital: "Gandhinagar",
@@ -429,7 +430,7 @@ stateData["gujarat"] = {
   conclusion: "Gujarat’s vibrant festivals, crafts, wildlife, and historic temples make it a rich destination for visitors seeking culture, spirituality, and adventure."
 };
 // HARYANA
-stateData["haryana"] = {
+"haryana":{
   name: "Haryana",
   tagline: "Green Land of India",
   capital: "Chandigarh",
@@ -485,7 +486,7 @@ stateData["haryana"] = {
   conclusion: "Haryana is a land of legends, crafts, and green fields, offering visitors a taste of rural India, folk culture, and ancient history."
 };
 // HIMACHAL PRADESH
-stateData["himachal-pradesh"] = {
+"himachal-pradesh":{
   name: "Himachal Pradesh",
   tagline: "Land of Gods (Dev Bhoomi)",
   capital: "Shimla (Summer), Dharamshala (Winter)",
@@ -541,7 +542,7 @@ stateData["himachal-pradesh"] = {
   conclusion: "Himachal Pradesh is a scenic mountain state, known for its adventure tourism, rich crafts, and spiritual sanctuaries."
 };
 // JHARKHAND
-stateData["jharkhand"] = {
+"jharkhand":{
   name: "Jharkhand",
   tagline: "The Land of Forests",
   capital: "Ranchi",
@@ -597,7 +598,7 @@ stateData["jharkhand"] = {
   conclusion: "Jharkhand is a green state known for forests, waterfalls, and indigenous culture. Its art, festivals, and eco-experiences attract nature and culture lovers."
 };
 // KARNATAKA
-stateData["karnataka"] = {
+"karnataka":{
   name: "Karnataka",
   tagline: "One State, Many Worlds",
   capital: "Bengaluru",
@@ -653,7 +654,7 @@ stateData["karnataka"] = {
   conclusion: "Karnataka blends heritage, modernity, and natural beauty. Its palaces, temples, coffee hills, and cuisine offer a complete travel experience."
 };
 // KERALA
-stateData["kerala"] = {
+"kerala":{
   name: "Kerala",
   tagline: "God's Own Country",
   capital: "Thiruvananthapuram",
@@ -710,7 +711,7 @@ stateData["kerala"] = {
 };
 // ... Continue the same structure for all remaining states and UTS ...
   // MADHYA PRADESH
-stateData["madhya-pradesh"] = {
+"madhya-pradesh":{
   name: "Madhya Pradesh",
   tagline: "The Heart of Incredible India",
   capital: "Bhopal",
@@ -766,7 +767,7 @@ stateData["madhya-pradesh"] = {
   conclusion: "Madhya Pradesh is a land of temples, tigers, and tradition. Its UNESCO sites, art, and wild landscapes form the heart of India's heritage."
 };
 // MAHARASHTRA
-stateData["maharashtra"] = {
+"maharashtra":{
   name: "Maharashtra",
   tagline: "Gateway to the Heart of India",
   capital: "Mumbai",
@@ -822,7 +823,7 @@ stateData["maharashtra"] = {
   conclusion: "Maharashtra is a land of contrasts: cosmopolitan Mumbai, ancient caves, coastal charm, and vibrant art. Its energy and diversity are unmatched."
 };
 // MANIPUR
-stateData["manipur"] = {
+ "manipur":{
   name: "Manipur",
   tagline: "The Jewel of India",
   capital: "Imphal",
@@ -878,7 +879,7 @@ stateData["manipur"] = {
   conclusion: "Manipur is a hidden jewel with floating lakes, classical dance, and unique tribal cultures. Its natural and artistic beauty is awe-inspiring."
 };
 /// MEGHALAYA
-stateData["meghalaya"] = {
+ "meghalaya":{
   name: "Meghalaya",
   tagline: "The Cloud's Kingdom",
   capital: "Shillong",
@@ -934,7 +935,7 @@ stateData["meghalaya"] = {
   conclusion: "Meghalaya offers a unique blend of natural beauty, cultural richness, and community-led initiatives. From its Living Root Bridges to traditional crafts and food, this state is an ideal destination for eco-tourism and cultural exploration. By promoting sustainable tourism and preserving its rich heritage, Meghalaya can empower local communities and showcase its beauty to the world."
 };
 // MIZORAM
-stateData["mizoram"] = {
+ "mizoram":{
   name: "Mizoram",
   tagline: "A Paradise in the Northeast",
   capital: "Aizawl",
@@ -990,7 +991,7 @@ stateData["mizoram"] = {
   conclusion: "Mizoram offers a unique blend of natural beauty, cultural richness, and community-led initiatives. From its scenic hills to traditional crafts and food, this state is an ideal destination for eco-tourism and cultural exploration. By promoting sustainable tourism and preserving its rich heritage, Mizoram can empower local communities and showcase its beauty to the world."
 };
 // NAGALAND
-stateData["nagaland"] = {
+ "nagaland":{
   name: "Nagaland",
   tagline: "Land of Festivals and Cultural Heritage",
   capital: "Kohima",
@@ -1046,7 +1047,7 @@ stateData["nagaland"] = {
   conclusion: "Nagaland offers a unique blend of cultural richness, natural beauty, and community-led initiatives. From its Hornbill Festival to traditional crafts and food, this state is an ideal destination for cultural exploration. By promoting sustainable tourism and preserving its rich heritage, Nagaland can empower local communities and showcase its beauty to the world."
 };
 // ... continue for Odisha, Punjab, Rajasthan, Sikkim, Tamil Nadu, Telangana, Tripura, Uttar Pradesh, Uttarakhand, West Bengal, Andaman and Nicobar Islands, Chandigarh, Dadra and Nagar Haveli and Daman and Diu, Delhi, Jammu and Kashmir, Ladakh, Lakshadweep, Puducherry ...
-  stateData["odisha"] = {
+   "odisha":{
   name: "Odisha",
   tagline: "Soul of Incredible India",
   capital: "Bhubaneswar",
@@ -1083,7 +1084,7 @@ stateData["nagaland"] = {
   }
 };
 
-stateData["punjab"] = {
+ "punjab":{
   name: "Punjab",
   tagline: "Land of Five Rivers",
   capital: "Chandigarh",
@@ -1120,7 +1121,7 @@ stateData["punjab"] = {
   }
 };
 
-stateData["rajasthan"] = {
+ "rajasthan":{
   name: "Rajasthan",
   tagline: "The Land of Kings",
   capital: "Jaipur",
@@ -1156,7 +1157,7 @@ stateData["rajasthan"] = {
     tourism: "Palace hotels, traditional Rajasthani cuisine"
   }
 };
-stateData["sikkim"] = {
+ "sikkim":{
   name: "Sikkim",
   tagline: "Small but Mighty",
   capital: "Gangtok",
@@ -1194,7 +1195,7 @@ stateData["sikkim"] = {
 };
 
 // Tamil Nadu
-stateData["tamil_nadu"] = {
+ "tamil_nadu":{
   name: "Tamil Nadu",
   tagline: "The Land of Temples",
   capital: "Chennai",
@@ -1230,7 +1231,7 @@ stateData["tamil_nadu"] = {
     tourism: "Traditional South Indian eateries"
   }
 };
-stateData["telangana"] = {
+ "telangana":{
   name: "Telangana",
   tagline: "The Youngest State with an Ancient Legacy",
   capital: "Hyderabad",
@@ -1267,7 +1268,7 @@ stateData["telangana"] = {
   }
 };
 
-stateData["tripura"] = {
+ "tripura":{
   name: "Tripura",
   tagline: "A Jewel in the Northeast",
   capital: "Agartala",
@@ -1304,7 +1305,7 @@ stateData["tripura"] = {
   }
 };
 
-stateData["uttar_pradesh"] = {
+ "uttar_pradesh":{
   name: "Uttar Pradesh",
   tagline: "India’s Heritage Heartland",
   capital: "Lucknow",
@@ -1340,7 +1341,7 @@ stateData["uttar_pradesh"] = {
     tourism: "Street food trails, traditional eateries"
   }
 };
-stateData["uttarakhand"] = {
+ "uttarakhand":{
   name: "Uttarakhand",
   tagline: "Land of Gods",
   capital: "Dehradun",
@@ -1378,7 +1379,7 @@ stateData["uttarakhand"] = {
 };
 
 // West Bengal
-stateData["west_bengal"] = {
+ "west_bengal":{
   name: "West Bengal",
   tagline: "The Cultural Capital of India",
   capital: "Kolkata",
@@ -1416,7 +1417,7 @@ stateData["west_bengal"] = {
 };
 
 // Andaman and Nicobar Islands
-stateData["andaman_nicobar"] = {
+ "andaman_nicobar":{
   name: "Andaman and Nicobar Islands",
   tagline: "Tropical Paradise",
   capital: "Port Blair",
@@ -1452,7 +1453,7 @@ stateData["andaman_nicobar"] = {
     tourism: "Beachfront cafes, seafood restaurants"
   }
 };
-stateData["chandigarh"] = {
+ "chandigarh":{
   name: "Chandigarh",
   tagline: "The City Beautiful",
   capital: "Chandigarh (Union Territory)",
@@ -1489,7 +1490,7 @@ stateData["chandigarh"] = {
   }
 };
 
-stateData["daman_diu_dnh"] = {
+ "daman_diu_dnh":{
   name: "Dadra and Nagar Haveli and Daman and Diu",
   tagline: "The Coastal Beauty & Tribal Heartland",
   capital: "Daman",
@@ -1526,7 +1527,7 @@ stateData["daman_diu_dnh"] = {
   }
 };
 
-stateData["delhi"] = {
+ "delhi":{
   name: "Delhi",
   tagline: "The Heart of India",
   capital: "New Delhi",
@@ -1563,7 +1564,7 @@ stateData["delhi"] = {
   }
 };
 
-stateData["ladakh"] = {
+ "ladakh":{
   name: "Ladakh",
   tagline: "The Land of High Passes",
   capital: "Leh",
@@ -1600,7 +1601,7 @@ stateData["ladakh"] = {
   }
 };
 // Jammu and Kashmir
-stateData["jammu_kashmir"] = {
+ "jammu_kashmir":{
   name: "Jammu and Kashmir",
   tagline: "Paradise on Earth",
   capital: "Srinagar (Summer), Jammu (Winter)",
@@ -1638,7 +1639,7 @@ stateData["jammu_kashmir"] = {
 };
 
 // Lakshadweep
-stateData["lakshadweep"] = {
+ "lakshadweep":{
   name: "Lakshadweep",
   tagline: "India’s Coral Paradise",
   capital: "Kavaratti",
@@ -1676,7 +1677,7 @@ stateData["lakshadweep"] = {
 };
 
 // Puducherry
-stateData["puducherry"] = {
+ "puducherry":{
   name: "Puducherry",
   tagline: "The French Riviera of the East",
   capital: "Puducherry",
@@ -1714,79 +1715,88 @@ stateData["puducherry"] = {
 };
 //END
 };
-function getSlug() {
-  const url = new URL(window.location.href);
-  return url.searchParams.get('state');
-}
-function renderDetails(slug) {
-  const data = stateData[slug];
-  if (!data) {
-    document.getElementById('main-details').innerHTML = `<div class="alert alert-danger">State/UT not found or data not available.</div>`;
-    return;
-  }
-  let html = `<div class="details-card">
-    <div class="details-title">${data.name}</div>
-    <div class="details-tagline">${data.tagline}</div>
-    <img src="${data.img}" alt="${data.name}" class="details-img mb-3">
-    <div><span class="badge">Capital</span> ${data.capital}</div>
-    <div class="mt-2"><span class="badge">Major Cities</span> ${data.majorCities.join(', ')}</div>
-    <div class="mt-2"><span class="badge">Location</span> ${data.location}</div>
-    <div class="mt-2"><span class="badge">Borders</span> ${data.borders}</div>
-    <div class="mt-2"><span class="badge">Terrain</span> ${data.terrain}</div>
-    <div class="mt-2"><span class="badge">Map Highlights</span> ${data.map_highlight}</div>
-    <div class="details-section-title">Culture, Art & Handicrafts</div>
-    <ul>
-      <li><b>Traditional Arts:</b> ${data.culture.arts}</li>
-      <li><b>Artisan Clusters:</b> ${data.culture.artisans}</li>
-      <li><b>GI Tagged Products:</b> ${data.culture.giTag}</li>
-      <li><b>Cultural Symbols:</b> ${data.culture.symbols}</li>
-      <li><b>Preservation Efforts:</b> ${data.culture.preservation}</li>
-    </ul>
-    <div class="details-section-title">Tourism & Heritage</div>
-    <ul>
-      <li><b>Top Tourist Attractions:</b>
-        <ul>${data.tourism.attractions.map(a=>`<li>${a}</li>`).join('')}</ul>
-      </li>
-      <li><b>Religious Spots:</b> ${data.tourism.religious}</li>
-      <li><b>Cultural Experiences:</b> ${data.tourism.experiences}</li>
-      <li><b>Tourism Data:</b> ${data.tourism.stats}</li>
-      <li><b>Best Time to Visit:</b> ${data.tourism.bestTime}</li>
-    </ul>
-    <div class="details-section-title">Food & Culinary Identity</div>
-    <ul>
-      <li><b>Signature Dishes:</b> ${data.food.signature}</li>
-      <li><b>Street Food Culture:</b> ${data.food.street}</li>
-      <li><b>Sweets & Drinks:</b> ${data.food.sweets}</li>
-      <li><b>Cultural Connection:</b> ${data.food.connection}</li>
-      <li><b>Food Tourism:</b> ${data.food.tourism}</li>
-    </ul>
-    <div class="details-section-title">Informative Previews</div>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <b>Videos:</b>
-        ${data.previews.videos.map(v => `<div class="mb-2"><iframe class="video-embed" src="${v.src}" title="${v.title}" allowfullscreen></iframe><small>${v.title}</small></div>`).join('')}
-      </div>
-      <div class="col-md-6 details-gallery">
-        <b>Images:</b><br>
-        ${data.previews.images.map(img => `<img src="${img}" alt="Gallery">`).join('')}
-      </div>
-    </div>
-    <div class="mt-2"><b>Streamlit UI Ideas:</b> ${data.previews.ui}</div>
-    <div class="details-section-title">Dance, Music & Language</div>
-    <ul>
-      <li><b>Dance Forms:</b> ${data.dance.forms}</li>
-      <li><b>Music:</b> ${data.dance.music}</li>
-      <li><b>Languages:</b> ${data.dance.languages}</li>
-    </ul>
-    <div class="details-section-title">Conclusion</div>
-    <p>${data.conclusion}</p>
-  </div>`;
-  document.getElementById('main-details').innerHTML = html;
-}
-document.addEventListener('DOMContentLoaded', () => {
-  const slug = getSlug();
-  renderDetails(slug);
-});
-</script>
+ function getSlug() {
+      const url = new URL(window.location.href);
+      return url.searchParams.get('state');
+    }
+
+    function renderDetails(slug) {
+      // Use the stateData object to retrieve the details for the given slug
+      const data = stateData[slug];
+      if (!data) {
+        document.getElementById('main-details').innerHTML = `<div class="alert alert-danger">State/UT not found or data not available.</div>`;
+        return;
+      }
+      let html = `<div class="details-card">
+        <div class="details-title">${data.name}</div>
+        <div class="details-tagline">${data.tagline}</div>
+        <img src="${data.img}" alt="${data.name}" class="details-img mb-3">
+        <div><span class="badge">Capital</span> ${data.capital}</div>
+        <div class="mt-2"><span class="badge">Major Cities</span> ${data.majorCities.join(', ')}</div>
+        <div class="mt-2"><span class="badge">Location</span> ${data.location}</div>
+        <div class="mt-2"><span class="badge">Borders</span> ${data.borders}</div>
+        <div class="mt-2"><span class="badge">Terrain</span> ${data.terrain}</div>
+        <div class="mt-2"><span class="badge">Map Highlights</span> ${data.map_highlight}</div>
+        <div class="details-section-title">Culture, Art & Handicrafts</div>
+        <ul>
+          <li><b>Traditional Arts:</b> ${data.culture.arts}</li>
+          <li><b>Artisan Clusters:</b> ${data.culture.artisans}</li>
+          <li><b>GI Tagged Products:</b> ${data.culture.giTag}</li>
+          <li><b>Cultural Symbols:</b> ${data.culture.symbols}</li>
+          <li><b>Preservation Efforts:</b> ${data.culture.preservation}</li>
+        </ul>
+        <div class="details-section-title">Tourism & Heritage</div>
+        <ul>
+          <li><b>Top Tourist Attractions:</b>
+            <ul>${data.tourism.attractions.map(a => `<li>${a}</li>`).join('')}</ul>
+          </li>
+          <li><b>Religious Spots:</b> ${data.tourism.religious}</li>
+          <li><b>Cultural Experiences:</b> ${data.tourism.experiences}</li>
+          <li><b>Tourism Data:</b> ${data.tourism.stats}</li>
+          <li><b>Best Time to Visit:</b> ${data.tourism.bestTime}</li>
+        </ul>
+        <div class="details-section-title">Food & Culinary Identity</div>
+        <ul>
+          <li><b>Signature Dishes:</b> ${data.food.signature}</li>
+          <li><b>Street Food Culture:</b> ${data.food.street}</li>
+          <li><b>Sweets & Drinks:</b> ${data.food.sweets}</li>
+          <li><b>Cultural Connection:</b> ${data.food.connection}</li>
+          <li><b>Food Tourism:</b> ${data.food.tourism}</li>
+        </ul>
+        <div class="details-section-title">Informative Previews</div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <b>Videos:</b>
+            ${data.previews.videos.map(v => `<div class="mb-2"><iframe class="video-embed" src="${v.src}" title="${v.title}" allowfullscreen></iframe><small>${v.title}</small></div>`).join('')}
+          </div>
+          <div class="col-md-6 details-gallery">
+            <b>Images:</b><br>
+            ${data.previews.images.map(img => `<img src="${img}" alt="Gallery">`).join('')}
+          </div>
+        </div>
+        <div class="mt-2"><b>Streamlit UI Ideas:</b> ${data.previews.ui}</div>
+        <div class="details-section-title">Dance, Music & Language</div>
+        <ul>
+          <li><b>Dance Forms:</b> ${data.dance.forms}</li>
+          <li><b>Music:</b> ${data.dance.music}</li>
+          <li><b>Languages:</b> ${data.dance.languages}</li>
+        </ul>
+        <div class="details-section-title">Conclusion</div>
+        <p>${data.conclusion}</p>
+      </div>`;
+      document.getElementById('main-details').innerHTML = html;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const slug = getSlug();
+      renderDetails(slug);
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <footer class="container">
+    <p class="float-end"><a href="#top">Back to top</a></p>
+    <p>©Team Agniv(Nikita.Abhilipsa.Soumya.Amlan)</p>
+  </footer>
 </body>
 </html>
