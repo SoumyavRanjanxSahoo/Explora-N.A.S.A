@@ -27,10 +27,10 @@
 </head>
 <body>
   <div class="container mt-5 mb-5">
-   <div id="main-details"></div>
+    <div id="main-details"></div>
     <button class="back-btn" onclick="history.back()">Back</button>
   </div>
-
+  
 <script>
 const stateData = {
 // ANDHRA PRADESH
@@ -2085,92 +2085,88 @@ previews: {
   }
 //END
 };
-  
-  function getSlug() {
-  const url = new URL(window.location.href);
-  return url.searchParams.get('state');
-}
-  
-function renderDetails(slug) { 
-  console.log('Retrieved slug:', slug);
-      const data = stateData[slug];
-      console.log('Retrieved data:', data);
-  if (!data) {
-    document.getElementById('main-details').innerHTML = `<div class="alert alert-danger">State/UT not found or data not available.</div>`;
-    return;
-  }
-  let html = `<div class="details-card">
-    <div class="details-title">${data.name}</div>
-    <div class="details-tagline">${data.tagline}</div>
-    <img src="${data.img}" alt="${data.name}" class="details-img mb-3">
-    <div><span class="badge">Capital</span> ${data.capital}</div>
-    <div class="mt-2"><span class="badge">Major Cities</span> ${data.majorCities.join(', ')}</div>
-    <div class="mt-2"><span class="badge">Location</span> ${data.location}</div>
-    <div class="mt-2"><span class="badge">Borders</span> ${data.borders}</div>
-    <div class="mt-2"><span class="badge">Terrain</span> ${data.terrain}</div>
-    <div class="mt-2"><span class="badge">Map Highlights</span> ${data.map_highlight}</div>
-    <div class="details-section-title">Culture, Art & Handicrafts</div>
-    <ul>
-      <li><b>Traditional Arts:</b> ${data.culture.arts}</li>
-      <li><b>Artisan Clusters:</b> ${data.culture.artisans}</li>
-      <li><b>GI Tagged Products:</b> ${data.culture.giTag}</li>
-      <li><b>Cultural Symbols:</b> ${data.culture.symbols}</li>
-      <li><b>Preservation Efforts:</b> ${data.culture.preservation}</li>
-    </ul>
-    <div class="details-section-title">Tourism & Heritage</div>
-    <ul>
-      <li><b>Top Tourist Attractions:</b>
-        <ul>${data.tourism.attractions.map(a=>`<li>${a}</li>`).join('')}</ul>
-      </li>
-      <li><b>Religious Spots:</b> ${data.tourism.religious}</li>
-      <li><b>Cultural Experiences:</b> ${data.tourism.experiences}</li>
-      <li><b>Tourism Data:</b> ${data.tourism.stats}</li>
-      <li><b>Best Time to Visit:</b> ${data.tourism.bestTime}</li>
-    </ul>
-    <div class="details-section-title">Food & Culinary Identity</div>
-    <ul>
-      <li><b>Signature Dishes:</b> ${data.food.signature}</li>
-      <li><b>Street Food Culture:</b> ${data.food.street}</li>
-      <li><b>Sweets & Drinks:</b> ${data.food.sweets}</li>
-      <li><b>Cultural Connection:</b> ${data.food.connection}</li>
-      <li><b>Food Tourism:</b> ${data.food.tourism}</li>
-    </ul>
-    <div class="details-section-title">Informative Previews</div>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <b>Videos:</b>
-        ${data.previews.videos.map(v => `<div class="mb-2"><iframe class="video-embed" src="${v.src}" title="${v.title}" allowfullscreen></iframe><small>${v.title}</small></div>`).join('')}
-      </div>
-      <div class="col-md-6 details-gallery">
-        <b>Images:</b><br>
-        ${data.previews.images.map(img => `<img src="${img}" alt="Gallery">`).join('')}
-      </div>
-    </div>
-    <div class="mt-2"><b>Streamlit UI Ideas:</b> ${data.previews.ui}</div>
-    <div class="details-section-title">Dance, Music & Language</div>
-    <ul>
-      <li><b>Dance Forms:</b> ${data.dance.forms}</li>
-      <li><b>Music:</b> ${data.dance.music}</li>
-      <li><b>Languages:</b> ${data.dance.languages}</li>
-    </ul>
-    <div class="details-section-title">Conclusion</div>
-    <p>${data.conclusion}</p>
-  </div>`;
-  document.getElementById('main-details').innerHTML = html;
-}
-document.addEventListener('DOMContentLoaded', () => {
-  const slug = getSlug();
-  renderDetails(slug);
-});
-</script>
-  
-  <footer class="bg-dark text-white text-center py-4 mt-5 border-top shadow-lg">
-    <div class="container">
-      <p class="mb-2 fs-5">&copy; Team Agniv — Nikita | Abhilipsa | Soumya | Amlan</p>
-      <p class="mb-3">Proudly showcasing the culture, cuisine, and charisma of India</p>
-      <a href="#top" class="btn btn-outline-light btn-sm px-4 rounded-pill shadow-sm">Back to Top</a>
-    </div>
+ function getStateKey() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('state');
+    }
+
+    // Render details for the state/UT
+    function renderDetails() {
+      const key = getStateKey();
+      const main = document.getElementById('main-details');
+      if (!key || !stateData[key]) {
+        main.innerHTML = `<div class="alert alert-danger">State/UT not found.</div>`;
+        return;
+      }
+      const data = stateData[key];
+      main.innerHTML = `
+        <div class="details-card">
+          <div class="details-title">${data.name}</div>
+          <div class="details-tagline">${data.tagline || ''}</div>
+          <img src="${data.img}" alt="${data.name}" class="details-img mb-3">
+          <div><span class="badge">Capital</span> ${data.capital || '-'}</div>
+          <div class="mt-2"><span class="badge">Major Cities</span> ${(data.majorCities || []).join(', ')}</div>
+          <div class="mt-2"><span class="badge">Location</span> ${data.location || '-'}</div>
+          <div class="mt-2"><span class="badge">Borders</span> ${data.borders || '-'}</div>
+          <div class="mt-2"><span class="badge">Terrain</span> ${data.terrain || '-'}</div>
+          <div class="mt-2"><span class="badge">Map Highlights</span> ${data.map_highlight || '-'}</div>
+          <div class="details-section-title">Culture, Art & Handicrafts</div>
+          <ul>
+            <li><b>Traditional Arts:</b> ${data.culture?.arts || '-'}</li>
+            <li><b>Artisan Clusters:</b> ${data.culture?.artisans || '-'}</li>
+            <li><b>GI Tagged Products:</b> ${data.culture?.giTag || '-'}</li>
+            <li><b>Cultural Symbols:</b> ${data.culture?.symbols || '-'}</li>
+            <li><b>Preservation Efforts:</b> ${data.culture?.preservation || '-'}</li>
+          </ul>
+          <div class="details-section-title">Tourism & Heritage</div>
+          <ul>
+            <li><b>Top Tourist Attractions:</b>
+              <ul>${(data.tourism?.attractions || []).map(a => `<li>${a}</li>`).join('')}</ul>
+            </li>
+            <li><b>Religious Spots:</b> ${data.tourism?.religious || '-'}</li>
+            <li><b>Cultural Experiences:</b> ${data.tourism?.experiences || '-'}</li>
+            <li><b>Tourism Data:</b> ${data.tourism?.stats || '-'}</li>
+            <li><b>Best Time to Visit:</b> ${data.tourism?.bestTime || '-'}</li>
+          </ul>
+          <div class="details-section-title">Food & Culinary Identity</div>
+          <ul>
+            <li><b>Signature Dishes:</b> ${data.food?.signature || '-'}</li>
+            <li><b>Street Food Culture:</b> ${data.food?.street || '-'}</li>
+            <li><b>Sweets & Drinks:</b> ${data.food?.sweets || '-'}</li>
+            <li><b>Cultural Connection:</b> ${data.food?.connection || '-'}</li>
+            <li><b>Food Tourism:</b> ${data.food?.tourism || '-'}</li>
+          </ul>
+          <div class="details-section-title">Informative Previews</div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <b>Videos:</b>
+              ${(data.previews?.videos || []).map(v => `<div class="mb-2"><iframe class="video-embed" src="${v.src}" title="${v.title}" allowfullscreen></iframe><small>${v.title}</small></div>`).join('')}
+            </div>
+            <div class="col-md-6 details-gallery">
+              <b>Images:</b><br>
+              ${(data.previews?.images || []).map(img => `<img src="${img}" alt="Gallery">`).join('')}
+            </div>
+          </div>
+          <div class="mt-2"><b>UI Ideas:</b> ${data.previews?.ui || '-'}</div>
+          <div class="details-section-title">Dance, Music & Language</div>
+          <ul>
+            <li><b>Dance Forms:</b> ${data.dance?.forms || '-'}</li>
+            <li><b>Music:</b> ${data.dance?.music || '-'}</li>
+            <li><b>Languages:</b> ${data.dance?.languages || '-'}</li>
+          </ul>
+          <div class="details-section-title">Conclusion</div>
+          <p>${data.conclusion || ''}</p>
+        </div>
+      `;
+    }
+
+    // Render on page load
+    document.addEventListener('DOMContentLoaded', renderDetails);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <footer class="container">
+    <p class="float-end"><a href="#top">Back to top</a></p>
+    <p>©Team Agniv(Nikita.Abhilipsa.Soumya.Amlan)</p>
   </footer>
 </body>
 </html>
-
