@@ -126,6 +126,7 @@
   </div>
 
   <!-- Main Tiles View -->
+   
   <div id="tiles-view" class="container mt-5">
     <h3 class="mb-5 text-center">Explore All 36 States & Union Territories of India</h3>
 
@@ -306,7 +307,8 @@
         key: "west-bengal"
     }
           ]; // End of States
-           function openStateDetails(stateKey) {
+          
+          function openStateDetails(stateKey) {
             window.location.href = `state-details.html?state=${stateKey}`;
           }
 
@@ -324,7 +326,8 @@
         </script>
       </div>
     </div>
-<div id="union-section" class="mt-5">
+<!-- Union Territories Section -->
+    <div id="union-section" class="mt-5">
       <h4 class="text-center mb-3">Union Territories</h4>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <script>
@@ -390,102 +393,7 @@
             "Lakshadweep",
             "Puducherry"
           ];
-         <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Explore India - 36 States & Union Territories</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #fecc99;
-      font-family: 'Arial', sans-serif;
-    }
-    .state-tile {
-      border-radius: 20px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      background-color: #fff;
-    }
-    .state-tile:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    }
-    .state-img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .state-caption {
-      padding: 15px;
-      text-align: center;
-      font-weight: bold;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-  <div id="tiles-view" class="container mt-5">
-    <h3 class="mb-5 text-center">Explore All 36 States & Union Territories of India</h3>
-
-    <!-- States Section -->
-    <div id="states-section">
-      <h4 class="text-center mb-3">States</h4>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <script>
-          // PLACE THE ARRAY OF STATES HERE
-          // Example:
-          // var statesUTs = [
-          //   {
-          //     name: "Andhra Pradesh",
-          //     img: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Tirumala_Anand_nilayam4653.jpg",
-          //     desc: "Known for its rich cultural heritage...",
-          //     key: "andhra-pradesh"
-          //   },
-          //   ...
-          // ];
-
-          // Function to redirect to state-details.html with the selected state's key
-          function openStateDetails(stateKey) {
-            window.location.href = `state-details.html?state=${stateKey}`;
-          }
-
-          // Dynamically generate tiles for states
-          statesUTs.forEach(function(state) {
-            document.write(`
-              <div class="col">
-                <div class="state-tile" onclick="openStateDetails('${state.key}')">
-                  <img src="${state.img}" alt="${state.name}" class="state-img">
-                  <div class="state-caption">${state.name}</div>
-                </div>
-              </div>
-            `);
-          });
-        </script>
-      </div>
-    </div>
-
-    <!-- Union Territories Section -->
-    <div id="union-section" class="mt-5">
-      <h4 class="text-center mb-3">Union Territories</h4>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <script>
-          // PLACE THE ARRAY OF UNION TERRITORIES HERE
-          // Example:
-          // statesUTs.push(
-          //   {
-          //     name: "Andaman and Nicobar Islands",
-          //     img: "https://www.example.com/andaman.jpg",
-          //     desc: "A tropical haven with pristine beaches...",
-          //     key: "andaman-nicobar-islands"
-          //   },
-          //   ...
-          // );
-
-          // Dynamically generate tiles for union territories
+     
           statesUTs.forEach(function(state) {
             if (state.isUnionTerritory) {
               document.write(`
@@ -502,12 +410,7 @@
       </div>
     </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-    
+  
   <!-- JavaScript Functions -->
   <!-- JavaScript Functions -->
   <script>
