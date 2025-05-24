@@ -81,6 +81,13 @@
       background-color: #e68a00;
     }
   </style>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-dyEZYS2+ZbZGgdokKJjV5ruz/0ucmYdXMK87g3v5yLpAI3AHP8/ssXcY2/cXKXzl3U9yDkor+rP8h7rIgYwB9Q=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 </head>
 <body>
   <!-- Navigation Bar -->
@@ -419,9 +426,32 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <footer class="container">
-    <p class="float-end"><a href="#10">Back to top</a></p>
-    <p>©Team Agniv(Nikita.Abhilipsa.Soumya.Amlan)</p>
-  </footer>
+  <footer class="footer bg-dark text-white py-4 mt-5">
+  <div class="container">
+    <div class="d-flex flex-column align-items-center">
+      <a href="#10" class="btn btn-warning btn-lg rounded-pill shadow-sm mb-3">
+        Back to top
+      </a>
+      <p class="mb-2">&copy; Team Agniv (Nikita, Abhilipsa, Soumya, Amlan)</p>
+      <div>
+        <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Inline Custom CSS for Footer -->
+<style>
+  .footer a {
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  .footer a:hover {
+    color: #ffc107; /* Soft yellow on hover */
+  }
+</style>
 </body>
 </html>
