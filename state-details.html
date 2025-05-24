@@ -2156,34 +2156,25 @@ previews: {
 </script>
 
    <script>
-    // On page load, get the state key from URL hash (e.g., #andhra-pradesh)
-    document.addEventListener("DOMContentLoaded", function() {
-      const key = window.location.hash.slice(1);
-      const data = stateData[key];
-      const container = document.getElementById("main-details");
-      if (!data) {
-        container.innerHTML = `<div class='alert alert-danger'>State/UT not found.</div>`;
-        return;
-      }
-
+    const key = new URLSearchParams(window.location.search).get('state') || window.location.hash.slice(1);
+    const data = stateData[key];
+    const container = document.getElementById("main-details");
+    if (!data) {
+      container.innerHTML = `<div class='alert alert-danger'>State/UT not found.</div>`;
+    } else {
       container.innerHTML = `
         <div class="details-card">
           <h1 class="details-title">${data.name}</h1>
           <p class="details-tagline">${data.tagline}</p>
           <img src="${data.img}" alt="${data.name}" class="details-img" />
-
           <h4 class="details-section-title">Capital</h4>
           <p>${data.capital}</p>
-
           <h4 class="details-section-title">Major Cities</h4>
           <p>${data.majorCities.join(", ")}</p>
-
           <h4 class="details-section-title">Location & Borders</h4>
           <p><strong>Location:</strong> ${data.location}<br><strong>Borders:</strong> ${data.borders}</p>
-
           <h4 class="details-section-title">Terrain</h4>
           <p>${data.terrain}</p>
-
           <h4 class="details-section-title">Culture & Arts</h4>
           <ul>
             <li><strong>Arts:</strong> ${data.culture.arts}</li>
@@ -2192,7 +2183,6 @@ previews: {
             <li><strong>Symbols:</strong> ${data.culture.symbols}</li>
             <li><strong>Preservation:</strong> ${data.culture.preservation}</li>
           </ul>
-
           <h4 class="details-section-title">Tourism</h4>
           <ul>
             <li><strong>Attractions:</strong> ${data.tourism.attractions.join(", ")}</li>
@@ -2201,7 +2191,6 @@ previews: {
             <li><strong>Stats:</strong> ${data.tourism.stats}</li>
             <li><strong>Best Time to Visit:</strong> ${data.tourism.bestTime}</li>
           </ul>
-
           <h4 class="details-section-title">Cuisine</h4>
           <ul>
             <li><strong>Signature Dishes:</strong> ${data.food.signature}</li>
@@ -2210,53 +2199,29 @@ previews: {
             <li><strong>Cultural Connection:</strong> ${data.food.connection}</li>
             <li><strong>Tourism:</strong> ${data.food.tourism}</li>
           </ul>
-
           <h4 class="details-section-title">Media Gallery</h4>
           ${data.previews.videos.map(v => `<iframe class="video-embed" src="${v.src}" title="${v.title}" allowfullscreen></iframe>`).join("")}
-
           <div class="details-gallery">
             ${data.previews.images.map(img => `<img src="${img}" alt="${data.name}" />`).join("")}
           </div>
-
           <h4 class="details-section-title">Languages & Performing Arts</h4>
           <ul>
             <li><strong>Dance Forms:</strong> ${data.dance.forms}</li>
             <li><strong>Music:</strong> ${data.dance.music}</li>
             <li><strong>Languages:</strong> ${data.dance.languages}</li>
           </ul>
-
           <h4 class="details-section-title">Conclusion</h4>
           <p>${data.conclusion}</p>
-        </div>
-      `;
-    });
+        </div>`;
+    }
   </script>
-  
-  <footer class="footer bg-dark text-white py-4 mt-5">
-  <div class="container text-center">
-    <a href="#top" class="btn btn-warning btn-lg rounded-pill shadow-sm mb-3">
-      Back to top
-    </a>
-    <p class="mb-2">&copy; Team Agniv (Nikita, Abhilipsa, Soumya, Amlan) – All rights reserved.</p>
-    <div class="social-icons">
-      <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-instagram"></i></a>
-      <a href="#" class="text-white mx-2 fs-5"><i class="fab fa-linkedin-in"></i></a>
+  <footer class="bg-dark text-white text-center py-4 mt-5 border-top shadow-lg">
+    <div class="container">
+      <p class="mb-2 fs-5">&copy; Team Agniv — Nikita | Abhilipsa | Soumya | Amlan</p>
+      <p class="mb-3">Proudly showcasing the culture, cuisine, and charisma of India</p>
+      <a href="#top" class="btn btn-outline-light btn-sm px-4 rounded-pill shadow-sm">Back to Top</a>
     </div>
-  </div>
-</footer>
-
-<!-- Inline Custom CSS for Footer (paste directly after the footer code) -->
-<style>
-  .footer a {
-    transition: color 0.3s ease;
-    text-decoration: none;
-  }
-
-  .footer a:hover {
-    color: #ffc107; /* Soft yellow on hover */
-  }
-</style>
+  </footer>
 </body>
 </html>
+
