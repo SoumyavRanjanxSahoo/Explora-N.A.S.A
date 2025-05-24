@@ -313,9 +313,10 @@
         key: "west-bengal"
     }
           ]; // End of States
-            function openStateDetails(stateKey) {
-            window.location.href = `state-details.html?state=${stateKey}`;
-          }
+           function openStateDetails(stateKey) {
+  window.location.href = `state-details.html#${stateKey}`;
+}
+
     
           // Dynamically generate tiles for states
           statesUTs.forEach(function(state) {
