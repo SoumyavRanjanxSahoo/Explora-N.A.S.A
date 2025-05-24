@@ -1,3 +1,4 @@
+
 const stateData = {
 // ANDHRA PRADESH
 "andhra-pradesh": {
@@ -2049,4 +2050,5 @@ previews: {
     },
     conclusion: "Puducherry exudes a unique charm by harmonizing French colonial elegance with traditional Tamil culture, creating a culturally rich and serene atmosphere that captivates every visitor."
   }
+//END
 };
