@@ -199,7 +199,11 @@
       </div>
     </div>
   </footer>
-
+  
+console.log("Loaded stateData:", window.stateData);
+console.log("Available keys:", stateData ? Object.keys(stateData) : []);
+console.log("URL key:", getStateKeyFromURL());
+  
   <script src="state-data.js"></script>
   <script>
     // Helper: Parse state key from URL
