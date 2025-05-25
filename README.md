@@ -1,6 +1,6 @@
 # Explora N.A.S.A
 
-![Explora N.A.S.A Banner](https://user-images.githubusercontent.com/your-banner-path/explora-nasa-banner.png)
+![Explora N.A.S.A Banner](https://github.com/SoumyavRanjanxSahoo/Explora-N.A.S.A/blob/main/1000133686.jpg)
 
 **Explora N.A.S.A** is a visually engaging, interactive web project that lets you explore the incredible diversity of India’s 28 States and 8 Union Territories. Discover cultural heritage, food, dance, art, major cities, natural wonders, and much more—presented in an immersive, modern UI.  
 Created by Team Agniv (Nikita, Abhilipsa, Soumya, Amlan) for a hackathon.
@@ -83,9 +83,11 @@ Explora-N.A.S.A/
 ## 🎨 Screenshots
 
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/your-screenshot-path/tiles-overview.png" width="700" alt="Tiles Overview"/>
+  <img src="https://github.com/SoumyavRanjanxSahoo/Explora-N.A.S.A/blob/main/1000133680.jpg" width="700" alt="Tiles Overview"/>
   <br/>
-  <img src="https://user-images.githubusercontent.com/your-screenshot-path/state-details.png" width="700" alt="State Details"/>
+  <img src="https://github.com/SoumyavRanjanxSahoo/Explora-N.A.S.A/blob/main/1000133682.jpg" width="700" alt="State Details"/>
+</div>
+<img src="https://github.com/SoumyavRanjanxSahoo/Explora-N.A.S.A/blob/main/1000133684.jpg" width="700" alt="State Details"/>
 </div>
 
 ---
